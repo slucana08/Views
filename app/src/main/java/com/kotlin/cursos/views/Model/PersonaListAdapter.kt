@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.kotlin.cursos.views.R
@@ -31,8 +32,10 @@ class PersonaListAdapter (private val list:ArrayList<Persona>,
         fun bindItem(persona: Persona){
             var nombres = itemView.findViewById(R.id.nombres_TextView) as TextView
             var apellidos = itemView.findViewById(R.id.apellidos_TextView) as TextView
+            var image = itemView.findViewById(R.id.image_View) as ImageView
             nombres.text = persona.nombres
             apellidos.text = persona.apellidos
+            image.setImageResource(persona.image!!)
             itemView.setOnClickListener {
                 Toast.makeText(context,"Su nombre es ${nombres.text.toString() + " " +
                 apellidos.text.toString()}",Toast.LENGTH_SHORT).show()
